@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<title>Connect TikTok</title>
+<link rel="icon" href="app-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <h1>Connect TikTok</h1>
+
+  <div id="ok" class="card hidden">
+    <p><strong>TikTok said yes.</strong> Copy this code and paste it into the bot within a few minutes, because it expires quickly and works only once.</p>
+    <textarea id="code" class="code-box" rows="3" readonly aria-label="Authorisation code"></textarea>
+    <button id="copy" type="button">Copy code</button>
+    <span id="copied" class="small hidden">&nbsp;Copied!</span>
+    <h2>Next</h2>
+    <ol>
+      <li>Open the <strong>TikTok-Automation</strong> repository on GitHub and go to the <strong>Actions</strong> tab.</li>
+      <li>Click <strong>Connect TikTok</strong>, then <strong>Run workflow</strong>.</li>
+      <li>Paste the code into the <strong>code</strong> box and click <strong>Run workflow</strong>.</li>
+    </ol>
+    <p class="small" id="state-line"></p>
+  </div>
+
+  <div id="err" class="card error hidden">
+    <p><strong>TikTok didn't connect.</strong></p>
+    <p id="err-text"></p>
+    <p>Start the connection again from the <strong>Connect TikTok</strong> workflow.</p>
+  </div>
+
+  <div id="none" class="card hidden">
+    <p>This page receives the one-time code TikTok sends back after you approve Trend Shorts Bot. Open it by starting the <strong>Connect TikTok</strong> workflow rather than visiting it directly.</p>
+  </div>
+
+  <footer>
+    <a href="./">Home</a>
+    <a href="privacy.html">Privacy Policy</a>
+  </footer>
+</main>
+<script>
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    var code = params.get("code");
+    var error = params.get("error");
+    function show(id) { document.getElementById(id).classList.remove("hidden"); }
+    if (error) {
+      var desc = params.get("error_description") || "";
+      document.getElementById("err-text").textContent = error + (desc ? ": " + desc : "");
+      show("err");
+    } else if (code) {
+      var box = document.getElementById("code");
+      box.value = code;
+      var state = params.get("state");
+      if (state) {
+        document.getElementById("state-line").textContent = "Request ID (state): " + state;
+      }
+      show("ok");
+      document.getElementById("copy").addEventListener("click", function () {
+        function done() { document.getElementById("copied").classList.remove("hidden"); }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(code).then(done, function () { box.select(); document.execCommand("copy"); done(); });
+        } else {
+          box.select(); document.execCommand("copy"); done();
+        }
+      });
+      // Remove the code from the address bar so it isn't kept in browser history.
+      if (window.history && window.history.replaceState) {
+        window.history.replaceState(null, "", window.location.pathname);
+      }
+    } else {
+      show("none");
+    }
+  })();
+</script>
+</body>
+</html>

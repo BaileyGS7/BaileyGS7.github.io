@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trend Shorts Bot</title>
+<meta name="description" content="Trend Shorts Bot is a personal tool that publishes the owner's own AI-assisted short videos to their own TikTok account.">
+<link rel="icon" href="app-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header class="hero">
+    <img src="app-icon.png" alt="" width="88" height="88">
+    <h1>Trend Shorts Bot</h1>
+    <p class="lede">A personal tool that turns what's trending into short explainer videos and publishes them to its owner's own TikTok account.</p>
+  </header>
+
+  <section>
+    <h2>How it works</h2>
+    <ol>
+      <li>It checks public trend lists (such as TikTok Creative Center and Google Trends) for topics people are talking about.</li>
+      <li>An AI writer researches a safe, suitable topic and writes a short voiceover script.</li>
+      <li>The video is assembled from a computer-generated voiceover, licensed stock footage and on-screen captions.</li>
+      <li>The finished video is uploaded to the owner's TikTok account through TikTok's official Content Posting API, either as a draft for the owner to review or as a post. Every video is labelled as AI-generated.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Who it's for</h2>
+    <p>Trend Shorts Bot is operated by one person for their own TikTok account. It is not a public service and does not access anyone else's account or data.</p>
+  </section>
+
+  <section>
+    <h2>TikTok permissions it uses</h2>
+    <ul>
+      <li><strong>Basic profile</strong> (<code>user.info.basic</code>): confirms which account is connected.</li>
+      <li><strong>Upload and publish videos</strong> (<code>video.upload</code>, <code>video.publish</code>): sends the owner's own videos to their account.</li>
+      <li><strong>Video list</strong> (<code>video.list</code>): reads view, like, comment and share counts on the owner's own videos so future videos can improve.</li>
+    </ul>
+  </section>
+
+  <footer>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+    <a href="https://github.com/BaileyGS7/BaileyGS7.github.io/issues">Contact</a>
+    <p class="small">Trend Shorts Bot is not affiliated with, endorsed by or sponsored by TikTok or ByteDance.</p>
+  </footer>
+</main>
+</body>
+</html>
