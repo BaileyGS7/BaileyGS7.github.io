@@ -11,7 +11,7 @@
 <main>
   <p><a href="./">&larr; Trend Shorts Bot</a></p>
   <h1>Privacy Policy</h1>
-  <p class="updated">Effective 9 October 2026</p>
+  <p class="updated">Effective 9 October 2026 (updated to cover YouTube)</p>
 
   <p>Trend Shorts Bot ("the app") is a personal automation tool run by its owner (GitHub user BaileyGS7) for the owner's own TikTok account. It is not offered to the public. This policy explains what data the app accesses and what it does with it.</p>
 
@@ -24,9 +24,13 @@
   </ul>
   <p>The app does not access other users' accounts, messages, followers' personal data or any data beyond the above.</p>
 
+  <h2>Data the app accesses from YouTube (Google)</h2>
+  <p>Only for the owner's own YouTube channel, and only after the owner authorises it on Google's sign-in screen, the app uses the YouTube Data API with the <code>youtube.upload</code> permission to upload the owner's own videos as YouTube Shorts. It does not read the owner's other YouTube or Google account data.</p>
+  <p>The app's use of information received from Google APIs follows the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements. The app uses YouTube API Services; see the <a href="https://policies.google.com/privacy">Google Privacy Policy</a> for how Google handles data.</p>
+
   <h2>How data is stored</h2>
   <ul>
-    <li>TikTok access and refresh tokens are stored as encrypted GitHub Actions secrets and are never written to logs or files.</li>
+    <li>TikTok and Google (YouTube) access and refresh tokens are stored as encrypted GitHub Actions secrets and are never written to logs or files.</li>
     <li>Video IDs, captions and statistics are stored in a private GitHub repository owned by the operator.</li>
     <li>Generated videos are kept temporarily as private workflow files and are deleted automatically after 14 days.</li>
   </ul>
@@ -35,10 +39,10 @@
   <p>To create videos, the app uses Anthropic (AI script writing and web research), Pexels and Pixabay (stock footage), Microsoft text-to-speech or ElevenLabs (voiceover) and GitHub (hosting and automation). Titles and view counts of the owner's own past videos may be sent to Anthropic's API to help write better scripts. No other TikTok data is shared with these services.</p>
 
   <h2>Sharing and selling</h2>
-  <p>The app does not sell, rent or share TikTok data with anyone, and does not use it for advertising.</p>
+  <p>The app does not sell, rent or share TikTok or Google data with anyone, does not use it for advertising, and does not allow humans to read it except the owner managing their own account.</p>
 
   <h2>Retention and deletion</h2>
-  <p>Data is kept only while the app is in use. Access can be revoked at any time in the TikTok app under <em>Settings and privacy &rarr; Security &amp; permissions &rarr; Apps and services permissions</em>. Revoking access stops the app immediately. The stored statistics are deleted when the operator deletes the repository, or on request.</p>
+  <p>Data is kept only while the app is in use. Access can be revoked at any time in the TikTok app under <em>Settings and privacy &rarr; Security &amp; permissions &rarr; Apps and services permissions</em>. Google (YouTube) access can be revoked at any time at <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>. Revoking access stops the app immediately. The stored statistics are deleted when the operator deletes the repository, or on request.</p>
 
   <h2>Children</h2>
   <p>The app is not directed at children and does not knowingly process children's data.</p>

@@ -22,7 +22,7 @@
       <li>It checks public trend lists (such as TikTok Creative Center and Google Trends) for topics people are talking about.</li>
       <li>An AI writer researches a safe, suitable topic and writes a short voiceover script.</li>
       <li>The video is assembled from a computer-generated voiceover, licensed stock footage and on-screen captions.</li>
-      <li>The finished video is uploaded to the owner's TikTok account through TikTok's official Content Posting API, either as a draft for the owner to review or as a post. Every video is labelled as AI-generated.</li>
+      <li>The finished video is uploaded to the owner's TikTok account through TikTok's official Content Posting API, either as a draft for the owner to review or as a post. Every video is labelled as AI-generated. The same video can also be uploaded to the owner's YouTube channel as a Short through the YouTube Data API.</li>
     </ol>
   </section>
 
@@ -40,11 +40,19 @@
     </ul>
   </section>
 
+  <section>
+    <h2>YouTube permission it uses</h2>
+    <ul>
+      <li><strong>Upload videos</strong> (<code>youtube.upload</code>): uploads the owner's own videos to their own channel as Shorts. Nothing else is read from the Google account.</li>
+    </ul>
+    <p class="small">Trend Shorts Bot uses YouTube API Services. <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a> · <a href="https://policies.google.com/privacy">Google Privacy Policy</a></p>
+  </section>
+
   <footer>
     <a href="privacy.html">Privacy Policy</a>
     <a href="terms.html">Terms of Service</a>
     <a href="https://github.com/BaileyGS7/BaileyGS7.github.io/issues">Contact</a>
-    <p class="small">Trend Shorts Bot is not affiliated with, endorsed by or sponsored by TikTok or ByteDance.</p>
+    <p class="small">Trend Shorts Bot is not affiliated with, endorsed by or sponsored by TikTok, ByteDance, YouTube or Google.</p>
   </footer>
 </main>
 </body>

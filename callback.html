@@ -5,36 +5,36 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <meta name="referrer" content="no-referrer">
-<title>Connect TikTok</title>
+<title>Connect Account</title>
 <link rel="icon" href="app-icon.png">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <main>
-  <h1>Connect TikTok</h1>
+  <h1 id="heading">Connect TikTok</h1>
 
   <div id="ok" class="card hidden">
-    <p><strong>TikTok said yes.</strong> Copy this code and paste it into the bot within a few minutes, because it expires quickly and works only once.</p>
+    <p><strong><span class="svc">TikTok</span> said yes.</strong> Copy this code and paste it into the bot within a few minutes, because it expires quickly and works only once.</p>
     <textarea id="code" class="code-box" rows="3" readonly aria-label="Authorisation code"></textarea>
     <button id="copy" type="button">Copy code</button>
     <span id="copied" class="small hidden">&nbsp;Copied!</span>
     <h2>Next</h2>
     <ol>
       <li>Open the <strong>TikTok-Automation</strong> repository on GitHub and go to the <strong>Actions</strong> tab.</li>
-      <li>Click <strong>Connect TikTok</strong>, then <strong>Run workflow</strong>.</li>
+      <li>Click <strong class="wf">Connect TikTok</strong>, then <strong>Run workflow</strong>.</li>
       <li>Paste the code into the <strong>code</strong> box and click <strong>Run workflow</strong>.</li>
     </ol>
     <p class="small" id="state-line"></p>
   </div>
 
   <div id="err" class="card error hidden">
-    <p><strong>TikTok didn't connect.</strong></p>
+    <p><strong><span class="svc">TikTok</span> didn't connect.</strong></p>
     <p id="err-text"></p>
-    <p>Start the connection again from the <strong>Connect TikTok</strong> workflow.</p>
+    <p>Start the connection again from the <strong class="wf">Connect TikTok</strong> workflow.</p>
   </div>
 
   <div id="none" class="card hidden">
-    <p>This page receives the one-time code TikTok sends back after you approve Trend Shorts Bot. Open it by starting the <strong>Connect TikTok</strong> workflow rather than visiting it directly.</p>
+    <p>This page receives the one-time code TikTok or YouTube (Google) sends back after you approve Trend Shorts Bot. Open it by starting the <strong>Connect TikTok</strong> or <strong>Connect YouTube</strong> workflow rather than visiting it directly.</p>
   </div>
 
   <footer>
@@ -48,6 +48,15 @@
     var code = params.get("code");
     var error = params.get("error");
     function show(id) { document.getElementById(id).classList.remove("hidden"); }
+    // Google (YouTube) adds a "scope" with googleapis.com URLs; the bot also prefixes its state with the service.
+    var state0 = params.get("state") || "";
+    var isGoogle = (params.get("scope") || "").indexOf("googleapis.com") !== -1 || state0.indexOf("youtube") === 0;
+    var service = isGoogle ? "YouTube" : "TikTok";
+    var workflow = isGoogle ? "Connect YouTube" : "Connect TikTok";
+    document.getElementById("heading").textContent = "Connect " + service;
+    document.title = "Connect " + service;
+    Array.prototype.forEach.call(document.querySelectorAll(".svc"), function (el) { el.textContent = isGoogle ? "Google" : "TikTok"; });
+    Array.prototype.forEach.call(document.querySelectorAll(".wf"), function (el) { el.textContent = workflow; });
     if (error) {
       var desc = params.get("error_description") || "";
       document.getElementById("err-text").textContent = error + (desc ? ": " + desc : "");
