@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Trend Shorts Bot</title>
-<meta name="description" content="Trend Shorts Bot is a personal tool that publishes the owner's own AI-assisted short videos to their own TikTok account.">
+<meta name="description" content="Trend Shorts Bot is a personal tool that publishes the owner's own AI-assisted short videos to their own TikTok account and their own YouTube channel.">
 <link rel="icon" href="app-icon.png">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -13,22 +13,28 @@
   <header class="hero">
     <img src="app-icon.png" alt="" width="88" height="88">
     <h1>Trend Shorts Bot</h1>
-    <p class="lede">A personal tool that turns what's trending into short explainer videos and publishes them to its owner's own TikTok account.</p>
+    <p class="lede">A personal tool that turns what's trending into short explainer videos for its owner's own TikTok account and own YouTube channel.</p>
   </header>
 
   <section>
     <h2>How it works</h2>
     <ol>
-      <li>It checks public trend lists (such as Google Trends) and the news for topics people are talking about.</li>
-      <li>An AI writer researches a safe, suitable topic and writes a short voiceover script.</li>
+      <li>It checks public trend lists (Google Trends and Reddit) for topics people are talking about, or searches the web for them when those lists give nothing usable.</li>
+      <li>An AI writer picks a safe, suitable topic, usually after researching it on the web, and writes a short voiceover script.</li>
       <li>The video is assembled from a computer-generated voiceover, licensed stock footage and on-screen captions.</li>
-      <li>The finished video is uploaded to the owner's TikTok account through TikTok's official Content Posting API, either as a draft for the owner to review or as a post. Every video is labelled as AI-generated. The same video can also be uploaded to the owner's YouTube channel as a Short through the YouTube Data API.</li>
+      <li>The finished video goes only to the owner's own accounts, and each platform can be switched on or off separately:
+        <ul>
+          <li><strong>YouTube:</strong> uploaded through the YouTube Data API as a private Short, marked as altered or synthetic content. The owner watches each one in YouTube Studio and decides whether to publish it.</li>
+          <li><strong>TikTok:</strong> uploaded through TikTok's official Content Posting API, either as a draft for the owner to finish and post in the TikTok app or as a post. Videos are labelled as AI-generated (the owner switches the label on for drafts).</li>
+        </ul>
+      </li>
+      <li>With the owner's permission, it reads the view counts and watch-time statistics of the owner's own YouTube videos, to learn which video styles viewers watch for longest.</li>
     </ol>
   </section>
 
   <section>
     <h2>Who it's for</h2>
-    <p>Trend Shorts Bot is operated by one person for their own TikTok account. It is not a public service and does not access anyone else's account or data.</p>
+    <p>Trend Shorts Bot is a personal tool operated by one person for their own TikTok account and their own YouTube channel. It is not a public service, only the owner can connect an account to it, and it does not access anyone else's account or data.</p>
   </section>
 
   <section>
@@ -40,17 +46,20 @@
   </section>
 
   <section>
-    <h2>YouTube permission it uses</h2>
+    <h2>YouTube permissions it uses</h2>
     <ul>
-      <li><strong>Upload videos</strong> (<code>youtube.upload</code>): uploads the owner's own videos to their own channel as Shorts. Nothing else is read from the Google account.</li>
+      <li><strong>Upload videos</strong> (<code>youtube.upload</code>): uploads the owner's own videos to their own channel as Shorts.</li>
+      <li><strong>View YouTube Analytics reports</strong> (<code>yt-analytics.readonly</code>): reads the view counts and watch-time statistics of the owner's own videos, to learn which video styles work.</li>
     </ul>
-    <p class="small">Trend Shorts Bot uses YouTube API Services. <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a> · <a href="https://policies.google.com/privacy">Google Privacy Policy</a></p>
+    <p>Nothing else is read from the Google account. How the data is used, stored and deleted is explained in the <a href="privacy.html">Privacy Policy</a>.</p>
+    <p class="small">Trend Shorts Bot uses YouTube API Services. <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a> · <a href="https://policies.google.com/privacy">Google Privacy Policy</a> · <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a></p>
   </section>
 
   <footer>
     <a href="privacy.html">Privacy Policy</a>
     <a href="terms.html">Terms of Service</a>
-    <a href="https://github.com/BaileyGS7/BaileyGS7.github.io/issues">Contact</a>
+    <a href="mailto:jonj65854@gmail.com">Contact: jonj65854@gmail.com</a>
+    <a href="https://github.com/BaileyGS7/BaileyGS7.github.io/issues">GitHub issues</a>
     <p class="small">Trend Shorts Bot is not affiliated with, endorsed by or sponsored by TikTok, ByteDance, YouTube or Google.</p>
   </footer>
 </main>
