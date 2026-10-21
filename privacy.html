@@ -11,7 +11,7 @@
 <main>
   <p><a href="./">&larr; Trend Shorts Bot</a></p>
   <h1>Privacy Policy</h1>
-  <p class="updated">Effective 15 October 2026</p>
+  <p class="updated">Effective 21 October 2026</p>
 
   <p>Trend Shorts Bot ("the app") is a personal automation tool run by its owner (GitHub user BaileyGS7) for the owner's own TikTok account and the owner's own YouTube channel. It is a personal tool, not a service offered to the public, and only the owner can connect an account to it. This policy explains what data the app accesses, why, where it is kept, for how long, and how to remove it.</p>
 
@@ -36,10 +36,10 @@
   <ul>
     <li><strong>Logins.</strong> The TikTok and Google refresh tokens are stored as encrypted GitHub Actions secrets in the owner's private GitHub repository. They are never written to logs or files. Short-lived access tokens are only used while a run is going.</li>
     <li><strong>YouTube data: only in a temporary store, not in the code repository.</strong> For each video the app uploaded, it keeps the YouTube video ID, the app's own notes on how the video was made (its title, kind of topic, format, ending, length, trend source, place in the day's batch, first spoken line and opening on-screen text) and the statistics listed above. This store is kept in GitHub Actions' cache, which passes it from one run to the next, outside the repository's files and history. Every run deletes the records of videos uploaded more than 22 days earlier, re-reads the statistics of the others, saves a new copy and deletes the older copies. GitHub automatically deletes a copy that has not been used for 7 days, so no YouTube data is kept for more than 30 days, also while the app is paused.</li>
-    <li><strong>Upload links in run logs.</strong> The link to each new YouTube upload is also shown in that run's private log and summary on GitHub, and in the run's downloadable summary file, so the owner can find the video. GitHub deletes run logs after 30 days and the downloadable files after 14 days.</li>
+    <li><strong>Upload links in run logs.</strong> The link to each new YouTube upload is also shown in that run's private log and summary on GitHub, and in the run's downloadable summary file, so the owner can find the video. GitHub deletes run logs after 30 days; the app deletes the downloadable files within 3 days (7 at most).</li>
     <li><strong>Summary of what works.</strong> From the statistics, the app works out summary figures per category of its own (kind of topic, format, ending, length, place in the day's batch and trend source), only for categories with at least 5 measured videos: how many videos were measured, how many of them reached 20 engaged views (or 30 views), the median number of views, likes per 100 views, and the median percentage and time watched. This summary contains no video IDs, links or titles. Every run works it out again; it is kept only next to the statistics in the temporary store and deleted with them, never in the repository. The owner also sees it in the app's private run summaries on GitHub, which GitHub deletes after 30 days.</li>
     <li><strong>Run history.</strong> The app's own record of each run (the trend, the title and caption it wrote, how the video was made, the TikTok upload IDs, whether a YouTube upload worked with the privacy status YouTube reported and, for a failed upload, its error message, and the estimated AI cost) is kept in the private repository (the newest 500 runs). It does not contain YouTube video IDs, links or statistics.</li>
-    <li><strong>Videos.</strong> Finished videos are kept as private workflow files and are deleted automatically after 14 days.</li>
+    <li><strong>Videos.</strong> Finished videos are uploaded to the owner's YouTube channel as private videos and are not kept anywhere else. Only a test run that uploads nothing keeps its video, as a private workflow file deleted within 7 days.</li>
   </ul>
 
   <h2>Services used to make videos</h2>
